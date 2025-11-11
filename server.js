@@ -1,16 +1,11 @@
+//importo modulo
 const http = require('http');
-const port = process.env.PORT || 8080;
-const host = process.env.HOST || 'localhost';
-
-http.createServer(function(req, res) {
+const server = http.createServer((req, res) => {
     res.writeHead(200, {
-        "Content-type": "text/html"
+        'Content-type': 'text/html'
     });
-    res.end('Hello World');
+    res.end('<h1>ciao sono collegato sul server</h1>')
+});
+server.listen(8888, 'localhost', () => {
+    console.log('server attivo su http://localhost:8888');
 })
-.listen(port, host, () => {
-    const serverUrl = `http://${host}:${port}`;
-    console.log(`server avviato su ${serverUrl}`);
-})
-
-//da terminale node server.js
