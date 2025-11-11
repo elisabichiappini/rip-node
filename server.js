@@ -1,0 +1,16 @@
+const http = require('http');
+const port = process.env.PORT || 8080;
+const host = process.env.HOST || 'localhost';
+
+http.createServer(function(req, res) {
+    res.writeHead(200, {
+        "Content-type": "text/html"
+    });
+    res.end('Hello World');
+})
+.listen(port, host, () => {
+    const serverUrl = `http://${host}:${port}`;
+    console.log(`server avviato su ${serverUrl}`);
+})
+
+//da terminale node server.js
